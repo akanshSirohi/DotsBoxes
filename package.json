@@ -1,0 +1,21 @@
+{
+  "name": "DotsBoxes",
+  "version": "1.0.0",
+  "description": "Dots & Boxes Dual Player Game",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "debug": "nodemon app.js",
+    "deploy": "git add . && git commit -am \"Small Change...\" && git push heroku master"
+  },
+  "keywords": [],
+  "author": "Akansh Sirohi",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "socket.io": "^3.0.5"
+  }
+}
