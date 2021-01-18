@@ -114,6 +114,9 @@
             }
           }
           $(`#box_${index}`).html(lbl);
+          if (typ === "host") {
+            $(`#box_${index}`).css("color", "red");
+          }
           box_wins.push({
             id: `#box_${index}`,
             label: lbl,
