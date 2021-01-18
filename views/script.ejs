@@ -203,6 +203,8 @@
     gObj.box_wins.forEach((obj) => {
       $(`${obj.id}`).html(`${obj.label}`);
     });
+    labels[0] = gObj.name[0].toUpperCase();
+    labels[1] = gObj.pName[0].toUpperCase();
     initListeners();
     calcBoxes();
   };
