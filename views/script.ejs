@@ -160,8 +160,35 @@
         other++;
       }
     });
-    $("#cnt1").html(`${gObj.name}: ${me}`);
-    $("#cnt2").html(`${gObj.pName}: ${other}`);
+    if (TYPE === "host") {
+      $("#cnt1").html(`${gObj.name}: ${me}`);
+      $("#cnt2").html(`${gObj.pName}: ${other}`);
+    } else {
+      $("#cnt2").html(`${gObj.name}: ${me}`);
+      $("#cnt1").html(`${gObj.pName}: ${other}`);
+    }
+    let a, b;
+    a = me;
+    b = other;
+    let a1 = (a / size) * 100;
+    let b1 = (b / size) * 100;
+    let c = 100 - (a1 + b1);
+    if (a > b) {
+      a1 += c;
+    } else if (b > a) {
+      b1 += c;
+    } else {
+      a1 += c;
+      b1 += c;
+    }
+    if (TYPE == "host") {
+      document.getElementById("p1").style.width = `${a1}%`;
+      document.getElementById("p2").style.width = `${b1}%`;
+    } else {
+      document.getElementById("p1").style.width = `${b1}%`;
+      document.getElementById("p2").style.width = `${a1}%`;
+    }
+
     if (me + other == size * size) {
       checkWin(me, other);
     }
