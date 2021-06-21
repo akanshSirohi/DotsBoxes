@@ -167,20 +167,18 @@
       $("#cnt2").html(`${gObj.name}: ${me}`);
       $("#cnt1").html(`${gObj.pName}: ${other}`);
     }
+
     let a, b;
     a = me;
     b = other;
-    let a1 = (a / size) * 100;
-    let b1 = (b / size) * 100;
-    let c = 100 - (a1 + b1);
-    if (a > b) {
-      a1 += c;
-    } else if (b > a) {
-      b1 += c;
-    } else {
-      a1 += c;
-      b1 += c;
+    let t = a + b;
+    let a1 = 50,
+      b1 = 50;
+    if (t > 0) {
+      a1 = (a / t) * 100;
+      b1 = (b / t) * 100;
     }
+
     if (TYPE == "host") {
       document.getElementById("p1").style.width = `${a1}%`;
       document.getElementById("p2").style.width = `${b1}%`;
@@ -390,11 +388,13 @@
 
   const showTooltipMsg = (message) => {
     $("#toggleChat")
+      .tooltip("enable")
       .tooltip("hide")
       .attr("data-original-title", message)
       .tooltip("show");
     setTimeout(function () {
       $("#toggleChat").tooltip("hide");
+      $("#toggleChat").tooltip("disable");
     }, 4000);
   };
 
