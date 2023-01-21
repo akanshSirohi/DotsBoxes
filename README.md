@@ -2,7 +2,7 @@
 Dots & Boxes online dual player game in NodeJS.
 
 ## Live Demo
-https://dboxes.herokuapp.com/
+https://online-dboxes.onrender.com/
 
 ## Instructions to run
 
