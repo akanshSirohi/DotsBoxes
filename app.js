@@ -6,8 +6,8 @@ app.use(expressLayouts);
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 const port = process.env.PORT || 3000;
-// global.baseurl = `http://localhost:${port}`;
-global.baseurl = "https://online-dboxes.onrender.com";
+global.baseurl = `http://localhost:${port}`;
+// global.baseurl = "https://online-dboxes.onrender.com";
 app.use("/", require("./routes/index"));
 const cors = require("cors");
 app.use(cors());
@@ -57,9 +57,9 @@ const initListenes = (soc) => {
       let flg = true;
       let config = fs.readFileSync("config.json", "utf8");
       let g_codes = JSON.parse(config);
-      for(const code in g_codes) {
-        if(code === pin && !gameCodes.includes(g_codes[code])) {
-          code = g_codes[code];
+      for(const gcode in g_codes) {
+        if(gcode === pin && !gameCodes.includes(g_codes[gcode])) {
+          code = g_codes[gcode];
           flg = false;
           break;
         }
