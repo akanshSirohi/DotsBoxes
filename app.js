@@ -95,7 +95,7 @@ const initListenes = (soc) => {
           } else {
             gameSockets[i][code].host.emit("partnerReConnected", "ok");
           }
-          console.log(gameSockets[i]);
+          // console.log(gameSockets[i]);
         } else {
           soc.emit("clientConnected", { flg: false });
         }

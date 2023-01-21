@@ -160,31 +160,13 @@
         other++;
       }
     });
+    
     if (TYPE === "host") {
-      $("#cnt1").html(`${gObj.name}: ${me}`);
-      $("#cnt2").html(`${gObj.pName}: ${other}`);
+      $("#cnt1").html(`${me}`);
+      $("#cnt2").html(`${other}`);
     } else {
-      $("#cnt2").html(`${gObj.name}: ${me}`);
-      $("#cnt1").html(`${gObj.pName}: ${other}`);
-    }
-
-    let a, b;
-    a = me;
-    b = other;
-    let t = a + b;
-    let a1 = 50,
-      b1 = 50;
-    if (t > 0) {
-      a1 = (a / t) * 100;
-      b1 = (b / t) * 100;
-    }
-
-    if (TYPE == "host") {
-      document.getElementById("p1").style.width = `${a1}%`;
-      document.getElementById("p2").style.width = `${b1}%`;
-    } else {
-      document.getElementById("p1").style.width = `${b1}%`;
-      document.getElementById("p2").style.width = `${a1}%`;
+      $("#cnt1").html(`${other}`);
+      $("#cnt2").html(`${me}`);
     }
 
     if (me + other == size * size) {
@@ -567,7 +549,7 @@
         alert("Can't connect to this game!");
         window.location.href = BASE_URL;
       }
-      console.log(data);
+      // console.log(data);
     });
 
     socket.on("partnerConnected", (flg) => {
@@ -605,6 +587,15 @@
       }
       labels[0] = gObj.name[0].toUpperCase();
       labels[1] = gObj.pName[0].toUpperCase();
+
+      if (TYPE === "host") {
+        $("#p1").html(`${gObj.name}`);
+        $("#p2").html(`${gObj.pName}`);
+      } else {
+        $("#p2").html(`${gObj.name}`);
+        $("#p1").html(`${gObj.pName}`);
+      }
+
       calcBoxes();
     });
 
