@@ -55,19 +55,13 @@ const initListenes = (soc) => {
       code = genUniqueCode();
     } else {
       let flg = true;
-      let config = fs.readFileSync("config.bin", "utf8");
-      config = config.replace(/(\r\n|\n|\r)/gm, "");
-      config = config.split(";");
-      for (let i = 0; i < config.length; i++) {
-        if (config[i].length > 0) {
-          let x = config[i].split("=");
-          if (x[0] === pin) {
-            if (!gameCodes.includes(x[1])) {
-              code = x[1];
-              flg = false;
-            }
-            break;
-          }
+      let config = fs.readFileSync("config.json", "utf8");
+      let g_codes = JSON.parse(config);
+      for(const code in g_codes) {
+        if(code === pin && !gameCodes.includes(g_codes[code])) {
+          code = g_codes[code];
+          flg = false;
+          break;
         }
       }
       if (flg) {
